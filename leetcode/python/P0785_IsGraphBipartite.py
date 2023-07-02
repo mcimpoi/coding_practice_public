@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/is-graph-bipartite/
 from collections import deque
 from typing import List, Optional
 
