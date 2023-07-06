@@ -45,10 +45,11 @@ class Solution:
             # 33 because of INT32_MIN takes 33 bits to represent.
             bin_rep = f"{num:033b}"
             for idx, bin_val in enumerate(bin_rep):
-                if bin_val != "0":
+                if bin_val != "0":  # can be "1" or "-"
                     counts_nz[idx] += 1
                     vals_bit[idx] = bin_val
 
+        # make the bits binary string -- set to value for M3 + 1 and 0 otherwise
         bin_res = "".join(
             [
                 vals_bit[idx] if count % 3 == 1 else "0"
