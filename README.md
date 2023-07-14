@@ -1,4 +1,4 @@
-# Public version of my coding practice
+Public version of my coding practice, coding competitions etc.
 
 Mainly leetcode solutions.
 
