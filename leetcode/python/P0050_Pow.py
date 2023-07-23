@@ -5,11 +5,10 @@ class Solution:
     def myPow(self, x: float, n: int) -> float:
         if n == 0:
             return 1
-        if x == 1:
-            return 1
-
-        if x == 0:
-            return 0
+        # from problem statement:
+        # Either x is not zero or n > 0.
+        if x in (0, 1):
+            return x
 
         base = x
         result = 1
@@ -25,7 +24,8 @@ class Solution:
             result *= base
             n -= 1
 
-        if invert and x != 0:
+        # result is not 0 here, because x != 0.
+        if invert:
             result = 1.0 / result
 
         return result
@@ -33,6 +33,7 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
+    print(s.myPow(2, 0))
     print(s.myPow(0, 0))
     print(s.myPow(3, 3))
     print(s.myPow(5.3, 2))
