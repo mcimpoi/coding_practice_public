@@ -14,13 +14,18 @@ impl Solution {
             }
         }
         if neg == 1 {
-            return -1
+            return -1;
         } else {
-            return 1
+            return 1;
         }
     }
 }
 
 fn main() {
-    println!("Input: {:?} Output: {} Expected: {}", vec![1,5,2,-3], Solution::array_sign(vec![1,5,2,-3]), -1);
+    println!(
+        "Input: {:?} Output: {} Expected: {}",
+        vec![1, 5, 2, -3],
+        Solution::array_sign(vec![1, 5, 2, -3]),
+        -1
+    );
 }

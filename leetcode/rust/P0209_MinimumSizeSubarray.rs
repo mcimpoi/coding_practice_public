@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/minimum-size-subarray-sum/
 
 struct Solution;
 
@@ -29,11 +30,14 @@ impl Solution {
             }
         }
         return min_len % (num_sz + 1);
-
     }
 }
 
 fn main() {
-    println!("Input: {:?} Output: {} Expected: {}", vec![2, 3, 1, 2, 4, 3], Solution::min_sub_array_len(7, vec![2, 3, 1, 2, 4, 3]), 2);
-
+    println!(
+        "Input: {:?} Output: {} Expected: {}",
+        vec![2, 3, 1, 2, 4, 3],
+        Solution::min_sub_array_len(7, vec![2, 3, 1, 2, 4, 3]),
+        2
+    );
 }
