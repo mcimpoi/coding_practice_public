@@ -24,10 +24,10 @@ class Solution:
         dp[0][0] = True
 
         # pay attention:
-        for idx, ch in enumerate(s1):
+        for idx in range(len(s1)):
             dp[0][idx + 1] = dp[0][idx] and s1[idx] == s3[idx]
 
-        for idx, ch in enumerate(s2):
+        for idx in range(len(s2)):
             dp[idx + 1][0] = dp[idx][0] and s2[idx] == s3[idx]
 
         for idx1 in range(1, len(s1) + 1):
@@ -35,7 +35,5 @@ class Solution:
                 dp[idx2][idx1] = (
                     dp[idx2][idx1 - 1] and s3[idx1 + idx2 - 1] == s1[idx1 - 1]
                 ) or (dp[idx2 - 1][idx1] and s3[idx1 + idx2 - 1] == s2[idx2 - 1])
-
-        print(dp)
 
         return dp[len(s2)][len(s1)]
