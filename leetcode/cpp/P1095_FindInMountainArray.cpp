@@ -1,13 +1,13 @@
-// cleaned up solution at:
-// https://github.com/mcimpoi/coding_practice_public/tree/main/leetcode
-/**
- * // This is the MountainArray's API interface.
- * // You should not implement it, or speculate about its implementation
- */
+// https://leetcode.com/problems/find-in-mountain-array/
 
 #include <iostream>
 #include <unordered_map>
 #include <vector>
+
+/**
+ * // This is the MountainArray's API interface.
+ * // You should not implement it, or speculate about its implementation
+ */
 
 class MountainArray {
  public:
@@ -37,13 +37,6 @@ class Solution {
     std::unordered_map<int, int> cache;
 
     int idx_top = searchMountainTop(mountainArr, 0, arr_len - 1, cache);
-    // TODO: possible to use the same function, depending on sign
-    // of difference / comparator.
-    int top_val = try_get(cache, mountainArr, idx_top);
-    // std::cout << "top: " << idx_top << " value: " << top_val << "\n";
-    if (top_val == target) {
-      return idx_top;
-    }
 
     int search_res = search(mountainArr, target, 0, idx_top, cache, -1);
     if (search_res == -1) {
@@ -89,7 +82,7 @@ class Solution {
       if (val == target) {
         return imid;
       }
-      if (sign_different(target - val, direction)) {
+      if (same_sign(target - val, direction)) {
         right = imid;
       } else {
         left = imid + 1;
@@ -98,26 +91,25 @@ class Solution {
     return -1;
   }
 
-  inline bool sign_different(int x, int y) {
+  inline bool same_sign(int x, int y) {
+    // this allows us to use search in both ascending and
+    // descending sorted arrays
+    // We don't use multiplication because of overflow.
     return ((x < 0 && y < 0) || (x > 0 && y > 0));
   }
 
   int try_get(std::unordered_map<int, int>& cache, MountainArray& mountain,
               int position) {
-    // return  mountain.get(position);
-
-    if (position < 0) {
-      return -1;
-    }
-    // std::cout << "try_get: " << position << "\n";
+    // It seems that caching makes the solution faster.
+    // We use up to 3 * log(n) space.
     if (!cache.contains(position)) {
-      int val = mountain.get(position);
-      cache[position] = val;
+      cache[position] = mountain.get(position);
     }
     return cache[position];
   }
 };
 
+// Remove this when submitting to leetcode.
 int main(int argc, char** argv) {
   Solution sol;
   std::vector<int> arr = {1, 2, 3, 4, 5, 3, 1};
