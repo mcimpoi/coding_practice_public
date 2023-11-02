@@ -14,9 +14,9 @@ class Solution:
         gcd_len = gcd(len(str1), len(str2))
 
         substr = str1[:gcd_len]
-        if str1 != substr * (len(str1) // gcd_len) or str2 != substr * (
-            len(str2) // gcd_len
-        ):
-            return ""
-
-        return substr
+        return (
+            ""
+            if str1 != substr * (len(str1) // gcd_len)
+            or str2 != substr * (len(str2) // gcd_len)
+            else substr
+        )

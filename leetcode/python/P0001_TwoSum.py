@@ -24,11 +24,6 @@ class Solution(object):
         return [-1, -1]
 
     def twoSum_On2_O1(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
         n = len(nums)
         for ii in range(0, n):
             for jj in range(ii + 1, n):

@@ -4,9 +4,7 @@ from typing import List
 
 
 class Solution:
-    def minProcessingTime(
-        self, processorTime: List[int], tasks: List[int]
-    ) -> int:
+    def minProcessingTime(self, processorTime: List[int], tasks: List[int]) -> int:
         # n processors, 4 cores each, 4n tasks
         # each processor has a time when it becomes available;
         # max_{idx}(processorTime[i] + task[idx]) --> time when processor i
@@ -19,9 +17,5 @@ class Solution:
         tasks.sort(reverse=True)
         res = None
         for idx, pt in enumerate(processorTime):
-            res = (
-                pt + tasks[4 * idx]
-                if res is None
-                else max(res, pt + tasks[4 * idx])
-            )
+            res = pt + tasks[4 * idx] if res is None else max(res, pt + tasks[4 * idx])
         return res or -1

@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/knight-probability-in-chessboard/
 
+from typing import Dict, Tuple
+
 
 class Solution:
     def knightProbability(self, N: int, K: int, r: int, c: int) -> float:
