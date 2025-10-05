@@ -2,13 +2,9 @@
 from collections import defaultdict
 
 
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
+class Solution():
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        
         counts = defaultdict(int)
         idx = defaultdict(set)
         for ii, num in enumerate(nums):

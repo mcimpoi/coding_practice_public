@@ -1,11 +1,8 @@
 from collections import defaultdict
 
-class Solution(object):
-    def lengthOfLongestSubstring(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
         start_idx = 0
         prev_idx = defaultdict(lambda: -1)
         counts = defaultdict(int)
@@ -23,7 +20,15 @@ class Solution(object):
         return max_length
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = Solution()
-    for ss in ['abcabcbb', 'bbbbb', '', 'abc', 'pwwkew', 'abcdefbcdefghi', 'ababababababababababababa']:
+    for ss in [
+        "abcabcbb",
+        "bbbbb",
+        "",
+        "abc",
+        "pwwkew",
+        "abcdefbcdefghi",
+        "ababababababababababababa",
+    ]:
         print(ss, s.lengthOfLongestSubstring(ss))

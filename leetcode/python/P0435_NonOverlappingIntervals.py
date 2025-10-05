@@ -1,10 +1,8 @@
 # https://leetcode.com/problems/non-overlapping-intervals/
-
-from typing import List
-
+# Difficulty: Medium
 
 class Solution:
-    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+    def eraseOverlapIntervals(self, intervals: list[list[int]]) -> int:
         # n = len(intervals) <= 10^5 ==> max complexity nlogn
         # sort the intervals; then, compare the current interval with the "previous"
         # one;
@@ -33,3 +31,11 @@ class Solution:
             else:
                 prev_idx = idx
         return num_remove
+
+if __name__ == "__main__":
+    s = Solution()
+    print(s.eraseOverlapIntervals([[1,2],[2,3],[3,4],[1,3]]))  # 1
+    print(s.eraseOverlapIntervals([[1,2],[1,2],[1,2]]))  # 2
+    print(s.eraseOverlapIntervals([[1,2],[2,3]]))  # 0
+    print(s.eraseOverlapIntervals([[1,100],[11,22],[1,11],[2,12]]))  # 2
+    print(s.eraseOverlapIntervals([[0,2],[1,3],[2,4],[3,5],[4,6]]))  # 2

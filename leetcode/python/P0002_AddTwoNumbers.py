@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/add-two-numbers
 
-from typing import Optional, Tuple
+from typing import Optional
 
 
 # Definition for singly-linked list.
@@ -10,10 +10,10 @@ class ListNode:
         self.next: Optional[ListNode] = None
 
 
-class Solution(object):
+class Solution:
     def _add_to_result(
         self, result: Optional[ListNode], node: Optional[ListNode], carry: int
-    ) -> Tuple[Optional[ListNode], int]:
+    ) -> tuple[Optional[ListNode], int]:
         while node is not None and result is not None:
             current_val = node.val + carry
             carry = current_val // 10
